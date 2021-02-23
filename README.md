@@ -1,5 +1,5 @@
 <!-- markdownlint-disable -->
-# terraform-aws-eks-cluster [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-aws-eks-cluster.svg)](https://github.com/cloudposse/terraform-aws-eks-cluster/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
+# tf-mod-aws-eks-cluster [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-aws-eks-cluster.svg)](https://github.com/cloudposse/terraform-aws-eks-cluster/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
 <!-- markdownlint-restore -->
 
 [![README Header][readme_header_img]][readme_header_link]
@@ -349,6 +349,34 @@ Available targets:
 | kubernetes | >= 2.0 |
 | null | >= 2.0 |
 
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| label | cloudposse/label/null | 0.24.1 |
+| this | cloudposse/label/null | 0.24.1 |
+
+## Resources
+
+| Name |
+|------|
+| [aws_cloudwatch_log_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) |
+| [aws_eks_cluster](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster) |
+| [aws_eks_cluster](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster) |
+| [aws_eks_cluster_auth](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster_auth) |
+| [aws_iam_openid_connect_provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_openid_connect_provider) |
+| [aws_iam_policy_document](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) |
+| [aws_iam_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) |
+| [aws_iam_role_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy) |
+| [aws_iam_role_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) |
+| [aws_kms_alias](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_alias) |
+| [aws_kms_key](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_key) |
+| [aws_partition](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/partition) |
+| [aws_security_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) |
+| [aws_security_group_rule](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) |
+| [kubernetes_config_map](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map) |
+| [null_resource](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -358,6 +386,9 @@ Available targets:
 | allowed\_security\_groups | List of Security Group IDs to be allowed to connect to the EKS cluster | `list(string)` | `[]` | no |
 | apply\_config\_map\_aws\_auth | Whether to apply the ConfigMap to allow worker nodes to join the EKS cluster and allow additional users, accounts and roles to acces the cluster | `bool` | `true` | no |
 | attributes | Additional attributes (e.g. `1`) | `list(string)` | `[]` | no |
+| aws\_account\_id | The AWS account id of the provider being deployed to (e.g. 12345678). Autoloaded from account.tfvars | `string` | `""` | no |
+| aws\_assume\_role\_arn | (Optional) - ARN of the IAM role when optionally connecting to AWS via assumed role. Autoloaded from account.tfvars. | `string` | `""` | no |
+| aws\_region | The AWS region (e.g. ap-southeast-2). Autoloaded from region.tfvars. | `string` | `""` | no |
 | cluster\_encryption\_config\_enabled | Set to `true` to enable Cluster Encryption Configuration | `bool` | `false` | no |
 | cluster\_encryption\_config\_kms\_key\_deletion\_window\_in\_days | Cluster Encryption Config KMS Key Resource argument - key deletion windows in days post destruction | `number` | `10` | no |
 | cluster\_encryption\_config\_kms\_key\_enable\_key\_rotation | Cluster Encryption Config KMS Key Resource argument - enable kms key rotation | `bool` | `true` | no |
@@ -417,7 +448,6 @@ Available targets:
 | security\_group\_arn | ARN of the EKS cluster Security Group |
 | security\_group\_id | ID of the EKS cluster Security Group |
 | security\_group\_name | Name of the EKS cluster Security Group |
-
 <!-- markdownlint-restore -->
 
 
@@ -622,10 +652,10 @@ Check out [our other projects][github], [follow us on twitter][twitter], [apply 
   [readme_footer_link]: https://cloudposse.com/readme/footer/link?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-eks-cluster&utm_content=readme_footer_link
   [readme_commercial_support_img]: https://cloudposse.com/readme/commercial-support/img
   [readme_commercial_support_link]: https://cloudposse.com/readme/commercial-support/link?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-eks-cluster&utm_content=readme_commercial_support_link
-  [share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-eks-cluster&url=https://github.com/cloudposse/terraform-aws-eks-cluster
-  [share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-eks-cluster&url=https://github.com/cloudposse/terraform-aws-eks-cluster
+  [share_twitter]: https://twitter.com/intent/tweet/?text=tf-mod-aws-eks-cluster&url=https://github.com/cloudposse/terraform-aws-eks-cluster
+  [share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=tf-mod-aws-eks-cluster&url=https://github.com/cloudposse/terraform-aws-eks-cluster
   [share_reddit]: https://reddit.com/submit/?url=https://github.com/cloudposse/terraform-aws-eks-cluster
   [share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/cloudposse/terraform-aws-eks-cluster
   [share_googleplus]: https://plus.google.com/share?url=https://github.com/cloudposse/terraform-aws-eks-cluster
-  [share_email]: mailto:?subject=terraform-aws-eks-cluster&body=https://github.com/cloudposse/terraform-aws-eks-cluster
+  [share_email]: mailto:?subject=tf-mod-aws-eks-cluster&body=https://github.com/cloudposse/terraform-aws-eks-cluster
   [beacon]: https://ga-beacon.cloudposse.com/UA-76589703-4/cloudposse/terraform-aws-eks-cluster?pixel&cs=github&cm=readme&an=terraform-aws-eks-cluster
