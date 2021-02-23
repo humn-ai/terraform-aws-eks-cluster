@@ -24,10 +24,6 @@ variable "aws_assume_role_arn" {
 # Variables: TF-MOD-AWS-EKS-CLUSTER
 # -----------------------------------------------------------------------------
 
-variable "region" {
-  type        = string
-  description = "AWS Region"
-}
 
 variable "vpc_id" {
   type        = string
