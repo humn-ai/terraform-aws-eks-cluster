@@ -1,3 +1,7 @@
+# -----------------------------------------------------------------------------
+# Outputs: TF-MOD-AWS-EKS-CLUSTER
+# -----------------------------------------------------------------------------
+
 output "security_group_id" {
   description = "ID of the EKS cluster Security Group"
   value       = join("", aws_security_group.default.*.id)

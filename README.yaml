@@ -1,4 +1,4 @@
-name: terraform-aws-eks-cluster
+name: tf-mod-aws-eks-cluster
 license: APACHE2
 github_repo: cloudposse/terraform-aws-eks-cluster
 badges:
